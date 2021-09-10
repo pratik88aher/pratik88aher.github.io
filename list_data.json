@@ -1,0 +1,33 @@
+{
+	"publications": [{
+		"Title": "Automatically Generating Cause-and_Effect Questions from Passages",
+		"Authors": "Stasaski, K., Rathod, M., Tu, T., Xiao, Y, and Hearst, M.A.",
+		"Venue": "BEA Workshop",
+		"Year": "2021"
+	},
+	{
+		"Title": "Automatic Feedback Generation for Dialog-Based Language Tutors Using Transformer Models and Active Learning",
+		"Authors": "Stasaski, K. and Ramanarayanan, V.",
+		"Venue": "Human-in-the-Loop Dialogue Systems Workshop",
+		"Year": "2020"
+	},
+	{
+		"Title": "More Diverse Dialogue Datasets via Diversity-Informed Data Collection",
+		"Authors": "Stasaski, K., Yang, G., and Hearst, M.A.",
+		"Venue": "ACL",
+		"Year": "2020"
+	},
+	{
+		"Title": " Construction of a Large Open Access Dialogue Dataset for Tutoring",
+		"Authors": "Stasaski, K., Kao, K., and Hearst, M.A.",
+		"Venue": "BEA Workshop",
+		"Year": "2020"
+	},
+	{
+		"Title": "Multiple Choice Question Generation Utilizing an Ontology",
+		"Authors": "Stasaski, K and Hearst, M.A.",
+		"Venue": "BEA Workshop",
+		"Year": "2017"
+	}]
+	
+}

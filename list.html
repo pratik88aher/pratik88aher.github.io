@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>  
+<html>  
+    <header>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="table_style.css">
+        <title>My Webpage Title</title>
+    </header>
+    <body>  
+        <!---Navigation--->
+        <!--This section of code defines the navigation bar at the top of the page.  The classes used here are defined in the style.css file.-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <!--This code defines the "My Webpage" link in the top right corner of the navigation pane-->
+                <a class="navbar-brand" href="">My Webpage</a>
+                <!--This code defines the "List" link in the top left corner of the navigation pane-->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="./list.html">List</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--This code creates the middle section of the webpage-->
+        <header class="masthead bg-primary text-white text-center">
+            <h1>Publications</h1>
+        </header>
+        <!--Here is where the table will be loaded in.  The actual table will be loaded in JavaScript.-->
+        <center>
+            <br /><br />
+            <div id="showDataJSON"></div>
+        </center>
+    </body>
+
+    <script>
+
+        /*
+        * RENDERING THE JSON TABLE
+        * Get JSON data from file
+        * Get headers from retrieved data
+        * Set headers for table
+        * Add data to table
+        * Add table to DOM
+        */
+        fetch('./list_data.json')
+            .then(response => response.json())
+            .then(data => {
+
+                /*
+                This section creates the base table and finds the root json node.
+                */
+                var jsonTable = document.createElement("table");
+                var tr = jsonTable.insertRow(-1);   
+                jsonTable.style.width = "75%";
+                let root;
+                for (let prop in data) {
+                    root = prop;
+                }
+
+                /*
+                This section selects the headers for the table
+                */
+                let headers = Object.keys(data[root][0]);
+                headers.forEach(header => {
+                    var th = document.createElement("th");      
+                    th.innerHTML = header;
+                    tr.appendChild(th);
+                })              
+                /*
+                This section adds the data into each row of the list
+                */
+                let items = Object.keys(data[root]);
+                items.forEach(item => {
+                    tr = jsonTable.insertRow(-1);
+                    for (let key in data[root][item]) {
+                       var tabCell = tr.insertCell(-1);
+                       tabCell.innerHTML = data[root][item][key];
+                    }
+                })
+                /*
+                This section adds the table to the HTML
+                */
+                var divContainer = document.getElementById("showDataJSON");
+                divContainer.innerHTML = "";
+                divContainer.appendChild(jsonTable);
+            });
+    </script>  
+</html>
